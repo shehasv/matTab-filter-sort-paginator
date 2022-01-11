@@ -23,21 +23,20 @@ export class AppComponent implements AfterViewInit{
 
   dataSource;
 
-  ngOnInit(): void {
-    
-    this.employeeData = this.employeeService.getEmployeeData()
-    this.dataSource = new MatTableDataSource(this.employeeData);
-    
-  }
-
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
   @ViewChild(MatSort) sort: MatSort;
 
+
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.employeeService.getEmployeeFromApi().subscribe((res)=>{
+      console.log('first')
+      this.employeeData = res;
+      this.dataSource = new MatTableDataSource(this.employeeData);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+    console.log('second')
   }
 
   applyFilter(event: Event) {

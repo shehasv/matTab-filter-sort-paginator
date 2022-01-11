@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Employee } from './employee';
 
 @Injectable({
@@ -6,7 +8,7 @@ import { Employee } from './employee';
 })
 export class EmployeeService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
 
   employeeData: Employee[] = [
@@ -27,6 +29,10 @@ export class EmployeeService {
 
   getEmployeeData(){
     return this.employeeData
+  }
+
+  getEmployeeFromApi():Observable<any>{
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
 
 

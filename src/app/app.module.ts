@@ -10,7 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort'
-
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent
@@ -24,7 +24,8 @@ import {MatSortModule} from '@angular/material/sort'
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    HttpClientModule
   ],
   exports:[
     MatInputModule

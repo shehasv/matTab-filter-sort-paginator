@@ -1,14 +1,14 @@
 
 <!-- Search Filter -->
 <mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="enter the search criteria" #input>
 </mat-form-field>
 
 
 <!-- Table  -->
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" >
 
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8"  >
 
@@ -31,7 +31,7 @@
   <!-- no result error - filtering -->
 
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="2">No data matching the filter "{{input.value}}"</td>
+      <td class="mat-cell" colspan="2">No records found.</td>
     </tr>
 
 
